@@ -1,11 +1,12 @@
 let counter = 0
 let unitsPerSec = 0
 let additionalUnits = []
+let pileOfBonuses = []
 
 const BOOSTERS = [
     ["Clicker", 2, 10, 0], ["Astronaut", 10, 50, 0],
-    ["Spacecraft", 75, 375, 0], ["Space shuttle", 200, 1000, 0],
-    ["NASA", 1000, 5000, 0], ["Tony Stark", 5000, 10000, 0]
+    ["Spacecraft", 75, 375, 0], ["Space-shuttle", 200, 1000, 0],
+    ["NASA", 1000, 5000, 0], ["Tony-Stark", 5000, 10000, 0]
 ]
 
 class Bonuses {
@@ -43,5 +44,16 @@ document.getElementById("buyTonyStark").disabled = "true"
 // onclick canvas
 function planetClick() {
     counter++
-    document.getElementById("score").innerText = `${counter}` 
+    document.getElementById("score").innerText = counter 
 }
+
+BOOSTERS.forEach((bonus, index) => {
+    let getBonus = new Bonuses(...bonus)
+    pileOfBonuses.push(getBonus)
+
+    if (bonus[0] === "click") {
+        document.getElementById(`${bonus[0]}`).addEventListener("click", () => {
+            pileOfBonuses[index].updateCounter()
+        })
+    }
+})
