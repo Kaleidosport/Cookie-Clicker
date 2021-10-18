@@ -26,18 +26,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 24px;
+  font-size: 26px;
 }
 
 @media screen and (min-width: 320px) {
   h1, h2, h3, h4, h5, h6 {
-    font-size: calc(24px + 13 * ((100vw - 320px) / 1030));
+    font-size: calc(26px + 13 * ((100vw - 320px) / 1030));
   }
 }
 
 @media screen and (min-width: 1350px) {
   h1, h2, h3, h4, h5, h6 {
-    font-size: 37px;
+    font-size: 39px;
   }
 }
 
@@ -51,42 +51,23 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #363030;
 }
 
-header nav {
+header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0 auto;
-  width: 50%;
-}
-
-header nav ul {
-  width: 100%;
-  line-height: 8vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 10vh;
+  background-color: #F2F2F2;
 }
 
-header nav ul li {
-  text-transform: uppercase;
-}
-
-header nav ul li a {
-  color: #1d1a1a;
-}
-
-main h1 {
+header h1 {
   color: #363030;
   text-align: center;
-  height: 2vh;
 }
 
 main .container {
@@ -94,6 +75,8 @@ main .container {
   display: -ms-flexbox;
   display: flex;
   background-image: url(../spaceBackground.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 main .container .planetContainer {
@@ -104,26 +87,26 @@ main .container .planetContainer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin-top: 8vh;
-  width: 40%;
+  width: 45%;
   height: 82vh;
 }
 
 main .container .planetContainer .planetContainerText {
-  width: 50%;
+  width: 95%;
   color: #F2F2F2 !important;
-  margin: -7vh 2vw 7vh 0;
-  margin-top: -7vh;
+  margin-top: -3vh;
   margin-bottom: 7vh;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.13);
 }
 
 main .container .planetContainer .planetContainerText .constructsCount, main .container .planetContainer .planetContainerText .constructsCountSecond {
+  margin: 0 auto;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,11 +132,116 @@ main .container .planetContainer .planetContainerText .buttonContainer {
 main .container .planetContainer img {
   width: 50%;
   height: auto;
+  cursor: pointer;
 }
 
 main .container .buttonContainer {
-  margin-top: 8vh;
-  width: 60%;
-  height: 82vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 55%;
+  height: 90vh;
+}
+
+main .container .buttonContainer article {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 16,666%;
+          flex: 1 16,666%;
+  height: 100%;
+  width: 99.85%;
+}
+
+main .container .buttonContainer article h2 {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #cccccc;
+  font-family: 'Lato', sans-serif;
+}
+
+main .container .buttonContainer article p {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 10%;
+  height: 10vh;
+  text-align: center;
+  line-height: 10vh;
+  background-color: #e4e4e4;
+  color: #363030;
+  border-radius: 7px;
+  font-family: 'Fredoka One', cursive;
+}
+
+main .container .buttonContainer article p {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 320px) {
+  main .container .buttonContainer article p {
+    font-size: calc(18px + 13 * ((100vw - 320px) / 1030));
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  main .container .buttonContainer article p {
+    font-size: 31px;
+  }
+}
+
+main .container .buttonContainer article button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16%;
+  height: 7vh;
+  line-height: 3vh;
+  text-align: center;
+  cursor: pointer;
+  background-color: #e4e4e4;
+  color: #363030;
+  border: none;
+  border-radius: 7px 0 0 0;
+  font-family: 'Fredoka One', cursive;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+main .container .buttonContainer article button {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 320px) {
+  main .container .buttonContainer article button {
+    font-size: calc(18px + 13 * ((100vw - 320px) / 1030));
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  main .container .buttonContainer article button {
+    font-size: 31px;
+  }
+}
+
+main .container .buttonContainer article button:hover {
+  background-color: #1d1a1a;
+  color: #F2F2F2;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
 }
 /*# sourceMappingURL=style.css.map */

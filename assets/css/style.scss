@@ -46,7 +46,7 @@ html {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Fredoka One', cursive;
     line-height: 1.3;
-    @include fluid-type($min_width, $max_width, $min_font+10, $max_font+10);
+    @include fluid-type($min_width, $max_width, $min_font+12, $max_font+12);
 }
 
 ::selection {
@@ -54,57 +54,46 @@ h1, h2, h3, h4, h5, h6 {
     background-color: $black-200;
 }
 
-header nav{
+header {
     display: flex;
-    margin: 0 auto;
-    width: 50%;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: $white-100;
 
-    ul{
-        width: 100%;
-        line-height: 8vh;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-
-        li{
-            text-transform: uppercase;
-
-            a{
-                color: $black-300;
-            }
-        }
+    h1{
+        color: $black-200;
+        text-align: center;
     }
 }
 
 main {
-    h1{
-        color: $black-200;
-        text-align: center;
-        height: 2vh;
-    }
-
+    
     .container{
         display: flex;
         background-image: url(../spaceBackground.png);
+        background-size: cover;
+        background-repeat: no-repeat;
 
         .planetContainer{
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             margin-top: 8vh;
-            width: 40%;
+            width: 45%;
             height: 82vh;
 
             .planetContainerText{
-                width: 50%;
+                width: 95%;
                 color: $white-100 !important;
-                margin: -7vh 2vw 7vh 0;
-                margin-top: -7vh;
+                margin-top: -3vh;
                 margin-bottom: 7vh;
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.13);
 
                 .constructsCount, .constructsCountSecond{
+                    margin: 0 auto;
+                    width: 50%;
                     display: flex;
                     justify-content: space-between;
 
@@ -122,13 +111,74 @@ main {
             img{
                 width: 50%;
                 height: auto;
+                cursor: pointer;
             }
         }
 
         .buttonContainer{
-            margin-top: 8vh;
-            width: 60%;
-            height: 82vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 55%;
+            height: 90vh;
+
+            article{
+                position: relative;
+                flex: 1 16,666%;
+                height: 100%;
+                width: 99.85%;
+                // border: 1px solid $white-300;
+
+                h2{
+                    position: absolute;
+                    top: 50%;
+                    left: 15%;
+                    transform: translateY(-50%);
+                    color: $white-300;
+                    font-family: 'Lato', sans-serif;
+                }
+
+                p{
+                    position: absolute;
+                    top: 50%;
+                    left: 2%;
+                    transform: translateY(-50%);
+                    width: 10%;
+                    height: 10vh;
+                    text-align: center;
+                    line-height: 10vh;
+                    background-color: $white-200;
+                    color: $black-200;
+                    border-radius: 7px;
+                    font-family: 'Fredoka One', cursive;
+                    @include fluid-type($min_width, $max_width, $min_font+4, $max_font+4);
+                }
+
+                button{
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 16%;
+                    height: 7vh;
+                    line-height: 3vh;
+                    text-align: center;
+                    cursor: pointer;
+                    background-color: $white-200;
+                    color: $black-200;
+                    border: none;
+                    border-radius: 7px 0 0 0;
+                    font-family: 'Fredoka One', cursive;
+                    @include fluid-type($min_width, $max_width, $min_font+4, $max_font+4);
+                    transition-duration: 0.5s;
+
+                    &:hover{
+                        background-color: $black-300;
+                        color: $white-100;
+                        transition-duration: 0.5s;
+                    }
+                }
+            }
         }
     }
 }
