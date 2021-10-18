@@ -2,10 +2,10 @@ let counter = 0
 let unitsPerSec = 0
 let additionalUnits = []
 
-const AUGMENTERS = [
-    ["Clicker", x, y, z], ["Astronaut", x, y, z],
-    ["Spacecraft", x, y, z], ["Space shuttle", x, y, z],
-    ["NASA", x, y, z], ["Tony Stark", x, y, z]
+const BOOSTERS = [
+    ["Clicker", 2, 10, 0], ["Astronaut", 10, 50, 0],
+    ["Spacecraft", 75, 375, 0], ["Space shuttle", 200, 1000, 0],
+    ["NASA", 1000, 5000, 0], ["Tony Stark", 5000, 10000, 0]
 ]
 
 class Bonuses {
@@ -14,15 +14,34 @@ class Bonuses {
         this.bonusAmount = bonusAmount
         this.bonusPrice = bonusPrice
         this.bonusTotal = bonusTotal
+        
+        this.addAugments = () => {
+            additionalUnits += this.bonusAmount * this.bonusTotal
+            document.getElementById("").innerText = additionalUnits.toFixed(0) // additionalUnits >> 0
+        } // Variable dedicated to the amount of units by second 
+
+        this.multiplier = () => {
+
+        }
+
+        this.updateCounter = () => {
+            counter > this.bonusPrice ? counter -= this.bonusPrice : counter
+            this.bonusTotal++
+            document.getElementById("").innerText = counter.toFixed(0)
+            // counter < this.bonusPrice ? document.classList.add("text-warning") : document
+        } // Variable dedicated to buying items and deducting from total
     }
-
-    functionbyZac() {
-        additionalUnits += this.bonusAmount * this.bonusTotal
-    } // Variable dedicated to the amount of units by second 
-
-    functionByZac2() {
-        counter > this.bonusPrice ? counter -= this.bonusPrice : counter
-        this.bonusTotal++
-    } // Variable dedicated to buying items and deducting from total
 }
 
+document.getElementById("buyHubble").disabled = "true"
+document.getElementById("Astronaut").disabled = "true"
+document.getElementById("buySpaceCraft").disabled = "true"
+document.getElementById("buySpaceShuttle").disabled = "true"
+document.getElementById("buyNASA").disabled = "true"
+document.getElementById("buyTonyStark").disabled = "true"
+
+// onclick canvas
+function planetClick() {
+    counter++
+    document.getElementById("score").innerText = `${counter}` 
+}
