@@ -31,21 +31,21 @@
             <section class="planetContainer">
                 <section class="planetContainerText">
                     <section class="constructsCount">
-                        <p>116,349</p>
+                        <p id="score">116,349</p>
                         <p>constructs</p>
                     </section>
                     <section class="constructsCountSecond">
-                        <p>39</p>
+                        <p id="production">39</p>
                         <p>per second</p>
                     </section>
                 </section>
-                <img src="./assets/favicon.png" id="planet">
+                <img src="./assets/favicon.png" id="planet" onclick="planetClick()">
             </section>
             <section class="buttonContainer">
                 <article class="clickerContainer">
                     <p id="clickerCount"></p>
                     <img src="" id="clicker">
-                    <button id="buyClicker">
+                    <button id="buyHubble">
                         <span id="clickerPrice"></span>
                     </button>
                 </article>
@@ -87,6 +87,6 @@
             </section>
         </section>
     </main>
-    <script src="./assets/js/style.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

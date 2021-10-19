@@ -4,9 +4,9 @@ let additionalUnits = []
 let pileOfBonuses = []
 
 const BOOSTERS = [
-    ["Clicker", 2, 10, 0], ["Astronaut", 10, 50, 0],
-    ["Spacecraft", 75, 375, 0], ["Space-shuttle", 200, 1000, 0],
-    ["NASA", 1000, 5000, 0], ["Tony-Stark", 5000, 10000, 0]
+    ["buyHubble", 2, 10, 0], ["buyAstronaut", 10, 50, 0],
+    ["buySpacecraft", 75, 375, 0], ["buySpaceShuttle", 200, 1000, 0],
+    ["buyNASA", 1000, 5000, 0], ["buyTonyStark", 5000, 10000, 0]
 ]
 
 class Bonuses {
@@ -18,24 +18,24 @@ class Bonuses {
         
         this.addAugments = () => {
             additionalUnits += this.bonusAmount * this.bonusTotal
-            document.getElementById("").innerText = additionalUnits.toFixed(0) // additionalUnits >> 0
+            document.getElementById("production").innerText = additionalUnits.toFixed(0) // additionalUnits >> 0
         } // Variable dedicated to the amount of units by second 
 
-        this.multiplier = () => {
+        // this.multiplier = () => {
 
-        }
+        // }
 
         this.updateCounter = () => {
             counter > this.bonusPrice ? counter -= this.bonusPrice : counter
             this.bonusTotal++
-            document.getElementById("").innerText = counter.toFixed(0)
+            document.getElementById("score").innerText = counter.toFixed(0)
             // counter < this.bonusPrice ? document.classList.add("text-warning") : document
         } // Variable dedicated to buying items and deducting from total
     }
 }
 
 document.getElementById("buyHubble").disabled = "true"
-document.getElementById("Astronaut").disabled = "true"
+document.getElementById("buyAstronaut").disabled = "true"
 document.getElementById("buySpaceCraft").disabled = "true"
 document.getElementById("buySpaceShuttle").disabled = "true"
 document.getElementById("buyNASA").disabled = "true"
