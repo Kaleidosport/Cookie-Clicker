@@ -26,18 +26,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 24px;
+  font-size: 26px;
 }
 
 @media screen and (min-width: 320px) {
   h1, h2, h3, h4, h5, h6 {
-    font-size: calc(24px + 13 * ((100vw - 320px) / 1030));
+    font-size: calc(26px + 13 * ((100vw - 320px) / 1030));
   }
 }
 
 @media screen and (min-width: 1350px) {
   h1, h2, h3, h4, h5, h6 {
-    font-size: 37px;
+    font-size: 39px;
   }
 }
 
@@ -51,49 +51,35 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #363030;
 }
 
-header nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 auto;
-  width: 50%;
+html {
+  background-image: url(../spaceBackground.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-header nav ul {
-  width: 100%;
-  line-height: 8vh;
+header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 10vh;
+  background-color: black;
 }
 
-header nav ul li {
-  text-transform: uppercase;
-}
-
-header nav ul li a {
-  color: #1d1a1a;
-}
-
-main h1 {
-  color: #363030;
+header h1 {
+  color: #F2F2F2;
   text-align: center;
-  height: 2vh;
 }
 
 main .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-image: url(../spaceBackground.png);
 }
 
 main .container .planetContainer {
@@ -104,26 +90,26 @@ main .container .planetContainer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin-top: 8vh;
-  width: 40%;
+  width: 45%;
   height: 82vh;
 }
 
 main .container .planetContainer .planetContainerText {
-  width: 50%;
+  width: 100%;
   color: #F2F2F2 !important;
-  margin: -7vh 2vw 7vh 0;
-  margin-top: -7vh;
+  margin-top: -3vh;
   margin-bottom: 7vh;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.13);
 }
 
 main .container .planetContainer .planetContainerText .constructsCount, main .container .planetContainer .planetContainerText .constructsCountSecond {
+  margin: 0 auto;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,11 +135,215 @@ main .container .planetContainer .planetContainerText .buttonContainer {
 main .container .planetContainer img {
   width: 50%;
   height: auto;
+  cursor: pointer;
+}
+
+main .container .planetContainer .contributor {
+  margin-top: 12vh;
+  padding: 5px 20px 6px 20px;
+  border-radius: 7px;
+  color: #e4e4e4;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+}
+
+main .container .planetContainer .contributor {
+  font-size: 9px;
+}
+
+@media screen and (min-width: 320px) {
+  main .container .planetContainer .contributor {
+    font-size: calc(9px + 13 * ((100vw - 320px) / 1030));
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  main .container .planetContainer .contributor {
+    font-size: 22px;
+  }
+}
+
+main .container .planetContainer .contributor:hover {
+  background-color: #e4e4e4;
+  color: #1d1a1a;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
 }
 
 main .container .buttonContainer {
-  margin-top: 8vh;
-  width: 60%;
-  height: 82vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 55%;
+  height: 90vh;
+}
+
+main .container .buttonContainer article {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 16,666%;
+          flex: 1 16,666%;
+  height: 100%;
+  width: 99.85%;
+}
+
+main .container .buttonContainer article h2 {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #cccccc;
+  -webkit-text-stroke: 1.2px #4C4343;
+  font-family: 'Lato', sans-serif;
+}
+
+main .container .buttonContainer article p {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 10%;
+  height: 10vh;
+  text-align: center;
+  line-height: 10vh;
+  background-color: #e4e4e4;
+  color: #363030;
+  border-radius: 7px;
+  font-family: 'Fredoka One', cursive;
+}
+
+main .container .buttonContainer article p {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 320px) {
+  main .container .buttonContainer article p {
+    font-size: calc(18px + 13 * ((100vw - 320px) / 1030));
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  main .container .buttonContainer article p {
+    font-size: 31px;
+  }
+}
+
+main .container .buttonContainer article button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16%;
+  height: 7vh;
+  line-height: 3vh;
+  text-align: center;
+  cursor: pointer;
+  background-color: #e4e4e4;
+  color: #363030;
+  border: none;
+  border-radius: 7px 0 0 0;
+  font-family: 'Fredoka One', cursive;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+main .container .buttonContainer article button {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 320px) {
+  main .container .buttonContainer article button {
+    font-size: calc(18px + 13 * ((100vw - 320px) / 1030));
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  main .container .buttonContainer article button {
+    font-size: 31px;
+  }
+}
+
+main .container .buttonContainer article button:hover {
+  background-color: #1d1a1a;
+  color: #F2F2F2;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+main .container .buttonContainer article:nth-child(1) {
+  border: 1px solid #1d1a1a;
+}
+
+main .container .buttonContainer article:nth-child(2) {
+  border: 1px solid #1d1a1a;
+}
+
+main .container .buttonContainer article:nth-child(3) {
+  border: 1px solid #1d1a1a;
+}
+
+main .container .buttonContainer article:nth-child(4) {
+  border: 1px solid #363030;
+}
+
+main .container .buttonContainer article:nth-child(5) {
+  border: 1px solid #4C4343;
+}
+
+main .container .buttonContainer article:nth-child(6) {
+  border: 1px solid #4C4343;
+}
+
+.hubbleContainer {
+  background-image: url(../hobble.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 65%;
+}
+
+.astonautContainer {
+  background-image: url(../astronaut.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 75%;
+}
+
+.spaceCraftContainer {
+  background-image: url(../space_comp.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 45%;
+}
+
+.spaceShuttleContainer {
+  background-image: url(../spaceship.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 47%;
+}
+
+.NASAContainer {
+  background-image: url(../nasa.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 53%;
+}
+
+.TonyStarkContainer {
+  background-image: url(../ironman.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 47%;
 }
 /*# sourceMappingURL=style.css.map */
