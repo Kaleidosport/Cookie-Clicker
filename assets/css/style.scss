@@ -52,14 +52,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: $black-200;
 }
 
-html{
-    background-image: url(../spaceBackground.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 main {
-
     h1{
         margin-top: -10vh;
         padding: 7vh;
@@ -72,6 +65,9 @@ main {
     }
     
     .container{
+        background-image: url(../spaceBackground.png);
+        background-size: cover;
+        background-repeat: no-repeat;
         display: flex;
 
         .planetContainer{
@@ -357,6 +353,119 @@ main {
             button{
                 width: 35% !important;
             }
+        }
+    }
+}
+
+.team{
+    .head{
+        margin-top: 5vh;
+        text-align: center;
+    }
+    .title-underline {
+        padding: 20px 0;
+        color: #ffbfac;
+        height: 21px;
+    }
+    .title-underline span {
+        width: 105px;
+        height: 2px;
+        background: currentColor;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+    }
+    .title-underline span:before, .title-underline span:after {
+        width: 4px;
+        height: 2px;
+        background: inherit;
+        position: absolute;
+        content: "";
+        top: 0;
+        left: -9px;
+    }
+    .title-underline span:after {
+        left: auto;
+        right: -9px;
+    }
+    svg {
+        display: flex;
+        max-width: 260px;
+        margin: 0 auto;
+    }
+    .member{
+        margin-top: 7vh;
+
+        ul{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            li{
+                margin: 4vh 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img{
+                    width: auto;
+                    height: 25vh;
+                    margin: 0 auto;
+                    padding: 15px 0;
+                }
+                h3{
+                    font-family: 'Lato', sans-serif;
+                    font-weight: bold;
+                }
+                a{
+                    color: #00000070;
+                    transition-duration: 0.5s;
+
+                    &:hover{
+                        color: #d16848;
+                        transition-duration: 0.5s;
+                    }
+                }
+                div{
+                    margin-top: 1.2vh;
+                    display: flex;
+
+                    svg{
+                        max-width: 32px;
+                        padding: 5px 10px;
+                    }
+                    a{
+                        color: $black-300;
+                        padding: 5px 10px;
+                        border: 1px solid transparent;
+                        border-radius: 4px;
+                        transition-duration: 0.5s;
+
+                        &:hover{
+                            border: 1px solid #d16848;
+                            transition-duration: 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1380px){
+    .member{
+        margin-top: 7vh;
+
+        ul{
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+}
+@media (max-width: 880px){
+    .member{
+        ul{
+            flex-direction: column;
+            width: 100% !important;
         }
     }
 }
