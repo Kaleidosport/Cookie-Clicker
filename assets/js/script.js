@@ -96,6 +96,7 @@ document.getElementById("buyAstronaut").addEventListener("click", () => {
         document.getElementById("score").innerText = counter
         document.getElementById("astronautCount").innerHTML = astronautCount
         document.getElementById("production").innerText = unitsPerSec
+        document.getElementById("displayAstronaut").classList.remove("hidden")
     }
     else console.log("Lacking constructs to buy more of this one")
 
@@ -115,6 +116,7 @@ document.getElementById("buySpaceCraft").addEventListener("click", () => {
         document.getElementById("score").innerText = counter
         document.getElementById("spaceCraftCount").innerHTML = spaceCraftCount
         document.getElementById("production").innerText = unitsPerSec
+        document.getElementById("displaySpaceCraft").classList.remove("hidden")
     }
     else console.log("Lacking constructs to buy more of this one")
 
@@ -135,6 +137,7 @@ document.getElementById("buySpaceShuttle").addEventListener("click", multiply = 
         document.getElementById("spaceShuttleCount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("spaceShuttleCount").innerHTML = spaceShuttleCount
+        document.getElementById("displaySpaceShuttle").classList.remove("hidden")
 
         let setTime = Date.now()
         let remainingTime
@@ -167,6 +170,7 @@ document.getElementById("buyNASA").addEventListener("click", () => {
         document.getElementById("score").innerText = counter
         document.getElementById("NASACount").innerHTML = NASACount
         document.getElementById("production").innerText = unitsPerSec
+        document.getElementById("displayNASA").classList.remove("hidden")
     }
     else console.log("Lacking constructs to buy more of this one")
 
@@ -186,6 +190,7 @@ document.getElementById("buyTonyStark").addEventListener("click", () => {
         document.getElementById("score").innerText = counter
         document.getElementById("TonyStarkCount").innerHTML = TonyStarkCount
         document.getElementById("production").innerText = unitsPerSec
+        document.getElementById("displayTonyStark").classList.remove("hidden")
     }
     else console.log("Lacking constructs to buy more of this one")
 
