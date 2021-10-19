@@ -8,6 +8,7 @@
 **Context :** Group assignment pertaining to the Junior WebDev's training provided by [BeCode](https://github.com/becodeorg), Javascript's 2nd part.  
 **Origin :** [Cookie Clicker](https://github.com/becodeorg/CRL-Woods-5.33/blob/main/1.TRAIL/02.The-Hill/08.Javascript/Challenge/cookie.md).  
 **Start date :** October 18th 2021.  
+**End product :** [Spatial Clicker, starring Tony Stark](https://kaleidosport.github.io/Cookie-Clicker/).
 
 ## Learning objectives  
 
@@ -17,6 +18,12 @@
 * To deliver our very own version of this clicker game  
 
 ---  
+  
+## Group organization  
+
+The least we can say is we benefitted from a great team chemistry throughout the whole project, so much so that we kept grinding to the very end. Though it proved difficult to divide the workload in such a way that everyone could feel satisfied, we let the group prevail over personal preferences.  
+
+While Thibaut tends to work as a back-end dev, he took charge of the whole styling process. As for Sarah, she committed to the whole Canvas part. Zaccaria and Anthony both worked their way through the back-end part. We're bound to improve some aspects of the game asap, given that the current version lacks some of the features we thought of.          
 
 ## Work in progress  
 

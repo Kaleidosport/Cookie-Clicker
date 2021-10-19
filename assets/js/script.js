@@ -1,7 +1,6 @@
 // Variables dedicated to counting items
-let dataStorage = getData() // Retrieving stored data
-let counter = dataStorage["counter"] // Total amount of constructs
-let unitsPerSec = dataStorage["unitsPerSec"] // Constructs produced per second...or every 2,5 seconds
+let counter = 0 // Total amount of constructs
+let unitsPerSec = 0 // Constructs produced per second...or every 2,5 seconds
 let multiplier = 1 // Base value associated to our multiplier-type bonus, aka space shuttle
 let pileOfBonuses = [] // Unused???
 
@@ -21,6 +20,7 @@ let NASABonus = 5000 // + 5000 constructs per 2,5 seconds
 let TonyStarkBonus = 25000 // + 25000 constructs per 2,5 seconds, let's roll
 
 // Local Storage
+let dataStorage = getData() // Retrieving stored data
 setInterval(()=>{setData(counter, unitsPerSec)}, 1000)
 
 function getData(){
