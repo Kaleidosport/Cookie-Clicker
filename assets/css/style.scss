@@ -58,20 +58,18 @@ html{
     background-repeat: no-repeat;
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    background-color: black;
+main {
 
     h1{
-        color: $white-100;
+        margin-top: -10vh;
+        padding: 7vh;
+        letter-spacing: .3rem;
+        word-spacing: .5rem;
+        color: transparent;
+        -webkit-text-stroke:2px $white-100;
         text-align: center;
+        text-transform: uppercase;
     }
-}
-
-main {
     
     .container{
         display: flex;
@@ -136,7 +134,7 @@ main {
             justify-content: space-between;
             align-items: center;
             width: 55%;
-            height: 90vh;
+            height: 100vh;
 
             article{
                 position: relative;
@@ -149,7 +147,7 @@ main {
                     top: 50%;
                     left: 15%;
                     transform: translateY(-50%);
-                    color: $white-300;
+                    color: $white-100;
                     -webkit-text-stroke: 1.2px $black-100;
                     font-family: 'Lato', sans-serif;
                 }
@@ -163,8 +161,8 @@ main {
                     height: 10vh;
                     text-align: center;
                     line-height: 10vh;
-                    background-color: $white-200;
-                    color: $black-200;
+                    background-color: #00000080;
+                    color: $white-100;
                     border-radius: 7px;
                     font-family: 'Fredoka One', cursive;
                     @include fluid-type($min_width, $max_width, $min_font+4, $max_font+4);
@@ -179,17 +177,18 @@ main {
                     line-height: 3vh;
                     text-align: center;
                     cursor: pointer;
-                    background-color: $white-200;
-                    color: $black-200;
+                    background-color: #0000008f;
+                    color: $white-100;
                     border: none;
                     border-radius: 7px 0 0 0;
+                    box-shadow: -1px -1px 250px white;
                     font-family: 'Fredoka One', cursive;
                     @include fluid-type($min_width, $max_width, $min_font+4, $max_font+4);
                     transition-duration: 0.5s;
 
                     &:hover{
-                        background-color: $black-300;
-                        color: $white-100;
+                        background-color: $white-300;
+                        color: $black-300;
                         transition-duration: 0.5s;
                     }
                 }
@@ -218,7 +217,7 @@ main {
 }
 
 .hidden{
-    // display: none !important;
+    display: none !important;
 }
 
 .hubbleContainer{
