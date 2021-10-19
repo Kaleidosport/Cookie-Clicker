@@ -4,7 +4,7 @@ let additionalUnits = []
 let pileOfBonuses = []
 
 const BOOSTERS = [
-    ["buyClicker", 2, 10, 0], ["buyAstronaut", 10, 50, 0],
+    ["buyHubble", 2, 10, 0], ["buyAstronaut", 10, 50, 0],
     ["buySpacecraft", 75, 375, 0], ["buySpaceShuttle", 200, 1000, 0],
     ["buyNASA", 1000, 5000, 0], ["buyTonyStark", 5000, 10000, 0]
 ]

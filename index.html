@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png"/>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Spatial CLicker</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="./instruction&Perks.html">Instruction & Perks</a>
+                </li>
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./team.html">Team</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Spatial CLicker</h1>
+        <section class="container">
+            <section class="planetContainer">
+                <section class="planetContainerText">
+                    <section class="constructsCount">
+                        <p id="score">116,349</p>
+                        <p>constructs</p>
+                    </section>
+                    <section class="constructsCountSecond">
+                        <p id="production">39</p>
+                        <p>per second</p>
+                    </section>
+                </section>
+                <img src="./assets/favicon.png" id="planet" onclick="planetClick()">
+            </section>
+            <section class="buttonContainer">
+                <article class="clickerContainer">
+                    <p id="clickerCount"></p>
+                    <img src="" id="clicker">
+                    <button id="buyHubble">
+                        <span id="clickerPrice"></span>
+                    </button>
+                </article>
+                <article class="astonautContainer">
+                    <p id="astronautCount"></p>
+                    <img src="" id="astronaut">
+                    <button id="buyAstronaut">
+                        <span id="astronautPrice"></span>
+                    </button>
+                </article>
+                <article class="spaceCraftContainer">
+                    <p id="spaceCraftCount"></p>
+                    <img src="" id="spaceCraft">
+                    <button id="buySpaceCraft">
+                        <span id="spaceCraftPrice"></span>
+                    </button>
+                </article>
+                <article class="spaceShuttleContainer">
+                    <p id="spaceShuttleCount"></p>
+                    <img src="" id="spaceShuttle">
+                    <button id="buySpaceShuttle">
+                        <span id="spaceShuttlePrice"></span>
+                    </button>
+                </article>
+                <article class="NASAContainer">
+                    <p id="NASACount"></p>
+                    <img src="" id="NASA">
+                    <button id="buyNASA">
+                        <span id="NASAPrice"></span>
+                    </button>
+                </article>
+                <article class="TonyStarkContainer">
+                    <p id="tonyStarkCount"></p>
+                    <img src="" id="tonyStark">
+                    <button id="buyTonyStark">
+                        <span id="tonyStarkPrice"></span>
+                    </button>
+                </article>
+            </section>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
