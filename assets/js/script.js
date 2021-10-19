@@ -19,6 +19,7 @@ let spacecraftBonus = 70 // + 70 constructs per 2,5 seconds
 let NASABonus = 5000 // + 5000 constructs per 2,5 seconds
 let TonyStarkBonus = 25000 // + 25000 constructs per 2,5 seconds, let's roll
 
+/*
 // Local Storage
 let dataStorage = getData() // Retrieving stored data
 setInterval(()=>{setData(counter, unitsPerSec)}, 1000)
@@ -34,7 +35,6 @@ function getData(){
 }
 
 // second set Data
-// {/* <p><button onclick="setData()" id="run" type="button">click</button></p> */}
 function setData(counter, unitsPerSec) {
     let coord =
     {
@@ -55,6 +55,7 @@ function setZero() {
     localStorage.setItem("data", JSON.stringify(coord))
     document.getElementById("score").innerHTML = coord["counter"]
 }
+*/
 
 // onclick function associated to the canvas area: click, produce constructs, rinse and repeat
 function planetClick() {
