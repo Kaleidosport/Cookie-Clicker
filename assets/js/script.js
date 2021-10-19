@@ -1,6 +1,7 @@
 // Variables dedicated to counting items
-let counter = 0 // Total amount of constructs
-let unitsPerSec = 0 // Constructs produced per second...or every 2,5 seconds
+let dataStorage = getData() // Retrieving stored data
+let counter = dataStorage["counter"] // Total amount of constructs
+let unitsPerSec = dataStorage["unitsPerSec"] // Constructs produced per second...or every 2,5 seconds
 let multiplier = 1 // Base value associated to our multiplier-type bonus, aka space shuttle
 let pileOfBonuses = [] // Unused???
 
@@ -19,16 +20,17 @@ let spacecraftBonus = 70 // + 70 constructs per 2,5 seconds
 let NASABonus = 5000 // + 5000 constructs per 2,5 seconds
 let TonyStarkBonus = 25000 // + 25000 constructs per 2,5 seconds, let's roll
 
-window.onload = () => {
-    //code
-    getData()
-}
-
 // Local Storage
-function getData() {
+setInterval(()=>{setData(counter, unitsPerSec)}, 1000)
+
+function getData(){
     let displayScore = document.getElementById("score")
+    let displayProd = document.getElementById("production")
     let dataStorage = JSON.parse(localStorage.getItem("data"))
-    dataStorage == null ? displayScore.innerHTML = "0" : displayScore.innerHTML = dataStorage["counter"]
+    dataStorage == null ? displayScore.innerHTML = dataStorage["counter"] : displayScore.innerHTML = dataStorage["counter"]
+    dataStorage == null ? displayProd.innerHTML = dataStorage["unitsPerSec"] : displayScore.innerHTML = dataStorage["unitsPerSec"]
+    console.log(dataStorage["counter"])
+    return dataStorage
 }
 
 // second set Data
@@ -42,6 +44,7 @@ function setData(counter, unitsPerSec) {
     
     localStorage.setItem("data", JSON.stringify(coord) )
     document.getElementById("score").innerHTML = coord["counter"] 
+    document.getElementById("production").innerHTML = coord["unitsPerSec"]
 }
 
 
