@@ -13,10 +13,9 @@ let NASACount = 0 // Total amount of NASA factories, aka our big gun
 let TonyStarkCount = 0 // Total amount of Tony Stark generated, aka our Deus ex Machina
 
 // Variables dedicated to the values associated to our aforementioned bonuses
-let hubbleBonus = 2 // Well, that's a basic auto-clicker for you: + 2 constructs per 2,5 seconds
-let astronautBonus = 10 // + 10 constructs per 2,5 seconds
+let hubbleBonus = 1 // Well, that's a basic auto-clicker for you: + 1 construct per 2,5 seconds
+let astronautBonus = 10 // + 5 constructs per 2,5 seconds
 let spacecraftBonus = 70 // + 70 constructs per 2,5 seconds
-let spaceShuttleBonus = 500 // To be edited
 let NASABonus = 5000 // + 5000 constructs per 2,5 seconds
 let TonyStarkBonus = 25000 // + 25000 constructs per 2,5 seconds, let's roll
 
@@ -37,8 +36,8 @@ function getData() {
 function setData(counter, unitsPerSec) {
     let coord =
     {
-        "counter":counter,
-        "unitsPerSec":unitsPerSec,
+        "counter": counter,
+        "unitsPerSec": unitsPerSec,
     }
     
     localStorage.setItem("data", JSON.stringify(coord) )
