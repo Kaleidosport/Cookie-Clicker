@@ -51,6 +51,12 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #363030;
 }
 
+html {
+  background-image: url(../spaceBackground.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,11 +68,11 @@ header {
       -ms-flex-align: center;
           align-items: center;
   height: 10vh;
-  background-color: #F2F2F2;
+  background-color: black;
 }
 
 header h1 {
-  color: #363030;
+  color: #F2F2F2;
   text-align: center;
 }
 
@@ -74,9 +80,6 @@ main .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-image: url(../spaceBackground.png);
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 main .container .planetContainer {
@@ -96,7 +99,7 @@ main .container .planetContainer {
 }
 
 main .container .planetContainer .planetContainerText {
-  width: 95%;
+  width: 100%;
   color: #F2F2F2 !important;
   margin-top: -3vh;
   margin-bottom: 7vh;
@@ -135,6 +138,38 @@ main .container .planetContainer img {
   cursor: pointer;
 }
 
+main .container .planetContainer .contributor {
+  margin-top: 12vh;
+  padding: 5px 20px 6px 20px;
+  border-radius: 7px;
+  color: #e4e4e4;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+}
+
+main .container .planetContainer .contributor {
+  font-size: 9px;
+}
+
+@media screen and (min-width: 320px) {
+  main .container .planetContainer .contributor {
+    font-size: calc(9px + 13 * ((100vw - 320px) / 1030));
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  main .container .planetContainer .contributor {
+    font-size: 22px;
+  }
+}
+
+main .container .planetContainer .contributor:hover {
+  background-color: #e4e4e4;
+  color: #1d1a1a;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+}
+
 main .container .buttonContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -160,7 +195,6 @@ main .container .buttonContainer article {
           flex: 1 16,666%;
   height: 100%;
   width: 99.85%;
-  border: 1px solid #cccccc;
 }
 
 main .container .buttonContainer article h2 {
@@ -170,6 +204,7 @@ main .container .buttonContainer article h2 {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   color: #cccccc;
+  -webkit-text-stroke: 1.2px #4C4343;
   font-family: 'Lato', sans-serif;
 }
 
@@ -183,7 +218,7 @@ main .container .buttonContainer article p {
   height: 10vh;
   text-align: center;
   line-height: 10vh;
-  background-color: rgba(204, 204, 204, 0.7);
+  background-color: #e4e4e4;
   color: #363030;
   border-radius: 7px;
   font-family: 'Fredoka One', cursive;
@@ -214,7 +249,7 @@ main .container .buttonContainer article button {
   line-height: 3vh;
   text-align: center;
   cursor: pointer;
-  background-color: rgba(204, 204, 204, 0.7);
+  background-color: #e4e4e4;
   color: #363030;
   border: none;
   border-radius: 7px 0 0 0;
@@ -246,7 +281,69 @@ main .container .buttonContainer article button:hover {
           transition-duration: 0.5s;
 }
 
-.hidden {
-  display: none !important;
+main .container .buttonContainer article:nth-child(1) {
+  border: 1px solid #1d1a1a;
+}
+
+main .container .buttonContainer article:nth-child(2) {
+  border: 1px solid #1d1a1a;
+}
+
+main .container .buttonContainer article:nth-child(3) {
+  border: 1px solid #1d1a1a;
+}
+
+main .container .buttonContainer article:nth-child(4) {
+  border: 1px solid #363030;
+}
+
+main .container .buttonContainer article:nth-child(5) {
+  border: 1px solid #4C4343;
+}
+
+main .container .buttonContainer article:nth-child(6) {
+  border: 1px solid #4C4343;
+}
+
+.hubbleContainer {
+  background-image: url(../hobble.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 65%;
+}
+
+.astonautContainer {
+  background-image: url(../astronaut.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 75%;
+}
+
+.spaceCraftContainer {
+  background-image: url(../space_comp.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 45%;
+}
+
+.spaceShuttleContainer {
+  background-image: url(../spaceship.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 47%;
+}
+
+.NASAContainer {
+  background-image: url(../nasa.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 53%;
+}
+
+.TonyStarkContainer {
+  background-image: url(../ironman.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 47%;
 }
 /*# sourceMappingURL=style.css.map */
