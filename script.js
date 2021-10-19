@@ -16,24 +16,26 @@ let spaceShuttleBonus = 500
 let NASABonus = 5000
 let TonyStarkBonus = 25000
 
-window.onload = () => {getData();
+window.onload = () => {getData(counter, unitsPerSec);
     //code
      }
 
 // Local Storage
-function getData(){
+function getData(counter, unitsPerSec){
     let displayScore = document.getElementById("score");
     let dataStorage = JSON.parse(localStorage.getItem("data"));
-    dataStorage == null ? displayScore.innerHTML = "0" : displayScore.innerHTML = dataStorage["counter"];
+    dataStorage == null ? displayScore.innerHTML = dataStorage["counter"] : displayScore.innerHTML = dataStorage["counter"];
 };
 
 // second set Data
 // {/* <p><button onclick="setData()" id="run" type="button">click</button></p> */}
 function setData(counter, unitsPerSec){
+    let count = counter;
+    let units = unitsPerSec;
     let coord =
     {
-        "counter":counter,
-        "unitsPerSec":unitsPerSec,
+        "counter":count,
+        "unitsPerSec":units,
         
     };
     

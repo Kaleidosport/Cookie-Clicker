@@ -58,7 +58,7 @@ function setZero(){
 // call
 window.onload = () => {getData();
     //code
-     }
+    }
 
 
 function planetClick() {
