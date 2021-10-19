@@ -1,6 +1,7 @@
 // Variables dedicated to counting items
 let counter = 0 // Total amount of constructs
 let unitsPerSec = 0 // Constructs produced per second...or every 2,5 seconds
+let multiplier = 1 // Base value associated to our multiplier-type bonus, aka space shuttle
 let pileOfBonuses = [] // Unused???
 
 // Variables dedicated to inventory multipliers
@@ -19,9 +20,43 @@ let spaceShuttleBonus = 500 // To be edited
 let NASABonus = 5000 // + 5000 constructs per 2,5 seconds
 let TonyStarkBonus = 25000 // + 25000 constructs per 2,5 seconds, let's roll
 
+window.onload = () => {
+    //code
+    getData()
+}
+
+// Local Storage
+function getData() {
+    let displayScore = document.getElementById("score")
+    let dataStorage = JSON.parse(localStorage.getItem("data"))
+    dataStorage == null ? displayScore.innerHTML = "0" : displayScore.innerHTML = dataStorage["counter"]
+}
+
+// second set Data
+// {/* <p><button onclick="setData()" id="run" type="button">click</button></p> */}
+function setData(counter, unitsPerSec) {
+    let coord =
+    {
+        "counter":counter,
+        "unitsPerSec":unitsPerSec,
+    }
+    
+    localStorage.setItem("data", JSON.stringify(coord) )
+    document.getElementById("score").innerHTML = coord["counter"] 
+}
+
+
+// set score to zero
+// <p><button onclick="setZero()" id="zero" type="button">replay</button></p>
+function setZero() {
+    let coord = {"counter": 0, "unitsPerSec": 0}
+    localStorage.setItem("data", JSON.stringify(coord))
+    document.getElementById("score").innerHTML = coord["counter"]
+}
+
 // onclick function associated to the canvas area: click, produce constructs, rinse and repeat
 function planetClick() {
-    counter++ 
+    counter += 1 * multiplier 
     document.getElementById("score").innerText = counter 
 }
 
@@ -29,7 +64,7 @@ function planetClick() {
 setInterval(() => {
     counter > 100 ? document.getElementById("buyAstronaut").disabled = false : console.log("Not enough constructs")
     counter > 1000 ? document.getElementById("buySpaceCraft").disabled = false : console.log("Not enough constructs")
-    counter > 5000 ? document.getElementById("buySpaceShuttle").disabled = false : console.log("Not enough constructs")
+    counter > 10000 && spaceShuttleCount < 1 ? document.getElementById("buySpaceShuttle").disabled = false : console.log("Not enough constructs")
     counter > 45000 ? document.getElementById("buyNASA").disabled = false : console.log("Not enough constructs")
     counter > 100000 ? document.getElementById("buyTonyStark").disabled = false : console.log("Not enough constructs")
 
@@ -40,7 +75,7 @@ document.getElementById("buyHubble").addEventListener("click", () => {
     if (counter > 20) {
         hubbleCount++
         counter -= 20
-        unitsPerSec += hubbleBonus // Add the bonus'value to the automatic production
+        unitsPerSec += hubbleBonus * multiplier // Add the bonus'value to the automatic production
         document.getElementById("score").innerText = counter
         document.getElementById("hubbleCount").innerHTML = hubbleCount
         document.getElementById("production").innerText = unitsPerSec
@@ -57,7 +92,7 @@ document.getElementById("buyAstronaut").addEventListener("click", () => {
     if (counter > 100) {
         astronautCount++
         counter -= 100
-        unitsPerSec += astronautBonus
+        unitsPerSec += astronautBonus * multiplier
         document.getElementById("astronautCount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("astronautCount").innerHTML = astronautCount
@@ -76,7 +111,7 @@ document.getElementById("buySpaceCraft").addEventListener("click", () => {
     if (counter > 1000) {
         spaceCraftCount++
         counter -= 1000
-        unitsPerSec += spacecraftBonus
+        unitsPerSec += spacecraftBonus * multiplier
         document.getElementById("spaceCraftCount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("spaceCraftCount").innerHTML = spaceCraftCount
@@ -91,22 +126,36 @@ document.getElementById("buySpaceCraft").addEventListener("click", () => {
 })
 
 // Space shuttle event
-document.getElementById("buySpaceShuttle").addEventListener("click", () => {
-    if (counter > 5000) {
+document.getElementById("buySpaceShuttle").addEventListener("click", multiply = () => {
+    if (counter > 10000 && spaceShuttleCount < 1) {
         spaceShuttleCount++
-        counter -= 5000
-        unitsPerSec += spaceShuttleBonus
+        counter -= 10000
+        multiplier *= 2
+
+        document.getElementById("buySpaceShuttle").removeEventListener("click", multiply)
         document.getElementById("spaceShuttleCount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("spaceShuttleCount").innerHTML = spaceShuttleCount
-        document.getElementById("production").innerText = unitsPerSec
-    }
-    else console.log("Lacking constructs to buy more of this one")
 
-    setInterval(() => {
-        counter += unitsPerSec
-        document.getElementById("score").innerText = counter
-    }, 2500)
+        let setTime = Date.now()
+        let remainingTime
+
+        let countdown = setInterval(() => {
+            document.getElementById("buySpaceShuttle").disabled = true
+            let clockin = Date.now() - setTime
+            remainingTime = ~~(31000 - clockin)
+
+            if (remainingTime <= 0) {
+                clearInterval(countdown)
+                spaceShuttleCount--
+                multiplier = 1
+                document.getElementById("spaceShuttleCount").innerHTML = spaceShuttleCount
+                document.getElementById("buySpaceShuttle").addEventListener("click", multiply)
+            }
+        }, 2500)
+        
+    }
+    else console.log("Cannot get this right now")
 })
 
 // NASA event
@@ -114,7 +163,7 @@ document.getElementById("buyNASA").addEventListener("click", () => {
     if (counter > 45000) {
         NASACount++
         counter -= 45000
-        unitsPerSec += NASABonus
+        unitsPerSec += NASABonus * multiplier
         document.getElementById("NASACount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("NASACount").innerHTML = NASACount
@@ -133,7 +182,7 @@ document.getElementById("buyTonyStark").addEventListener("click", () => {
     if (counter > 100000) {
         TonyStarkCount++
         counter -= 100000
-        unitsPerSec += TonyStarkBonus
+        unitsPerSec += TonyStarkBonus * multiplier
         document.getElementById("TonyStarkCount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("TonyStarkCount").innerHTML = TonyStarkCount
@@ -146,3 +195,5 @@ document.getElementById("buyTonyStark").addEventListener("click", () => {
         document.getElementById("score").innerText = counter
     }, 2500)
 })
+
+window.onbeforeunload = setData(counter, unitsPerSec)
