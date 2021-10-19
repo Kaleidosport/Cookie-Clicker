@@ -1,59 +1,172 @@
 let counter = 0
 let unitsPerSec = 0
-let additionalUnits = []
 let pileOfBonuses = []
 
-const BOOSTERS = [
-    ["buyHubble", 2, 10, 0], ["buyAstronaut", 10, 50, 0],
-    ["buySpacecraft", 75, 375, 0], ["buySpaceShuttle", 200, 1000, 0],
-    ["buyNASA", 1000, 5000, 0], ["buyTonyStark", 5000, 10000, 0]
-]
+let hubbleCount = 0
+let astronautCount = 0
+let spaceCraftCount = 0
+let spaceShuttleCount = 0
+let NASACount = 0
+let TonyStarkCount = 0
 
-class Bonuses {
-    constructor(bonusName, bonusAmount, bonusPrice, bonusTotal) {
-        this.bonusName = bonusName
-        this.bonusAmount = bonusAmount
-        this.bonusPrice = bonusPrice
-        this.bonusTotal = bonusTotal
+let hubbleBonus = 2
+let astronautBonus = 10
+let spacecraftBonus = 70
+let spaceShuttleBonus = 500
+let NASABonus = 5000
+let TonyStarkBonus = 25000
+
+window.onload = () => {getData();
+    //code
+     }
+
+// Local Storage
+function getData(){
+    let displayScore = document.getElementById("score");
+    let dataStorage = JSON.parse(localStorage.getItem("data"));
+    dataStorage == null ? displayScore.innerHTML = "0" : displayScore.innerHTML = dataStorage["counter"];
+};
+
+// second set Data
+// {/* <p><button onclick="setData()" id="run" type="button">click</button></p> */}
+function setData(counter, unitsPerSec){
+    let coord =
+    {
+        "counter":counter,
+        "unitsPerSec":unitsPerSec,
         
-        this.addAugments = () => {
-            additionalUnits += this.bonusAmount * this.bonusTotal
-            document.getElementById("production").innerText = additionalUnits.toFixed(0) // additionalUnits >> 0
-        } // Variable dedicated to the amount of units by second 
+    };
+    
+    localStorage.setItem("data", JSON.stringify(coord) );
+    document.getElementById("score").innerHTML = coord["counter"];
+    
 
-        // this.multiplier = () => {
 
-        // }
+};
 
-        this.updateCounter = () => {
-            counter > this.bonusPrice ? counter -= this.bonusPrice : counter
-            this.bonusTotal++
-            document.getElementById("score").innerText = counter.toFixed(0)
-            // counter < this.bonusPrice ? document.classList.add("text-warning") : document
-        } // Variable dedicated to buying items and deducting from total
-    }
+
+// set score to zero
+// <p><button onclick="setZero()" id="zero" type="button">replay</button></p>
+function setZero(){
+    let coord ={"counter":0, "unitsPerSec":0,};
+    localStorage.setItem("data", JSON.stringify(coord));
+    document.getElementById("score").innerHTML = coord["counter"];
 }
 
-// document.getElementById("buyHubble").disabled = "true"
-// document.getElementById("buyAstronaut").disabled = "true"
-// document.getElementById("buySpaceCraft").disabled = "true"
-// document.getElementById("buySpaceShuttle").disabled = "true"
-// document.getElementById("buyNASA").disabled = "true"
-// document.getElementById("buyTonyStark").disabled = "true"
 
-// onclick canvas
-function planetClick() {
-    counter++
-    document.getElementById("score").innerText = counter 
-}
 
-BOOSTERS.forEach((bonus, index) => {
-    let getBonus = new Bonuses(...bonus)
-    pileOfBonuses.push(getBonus)
+setInterval(() => {
+    counter > 100 ? document.getElementById("buyAstronaut").disabled = false : console.log("Not enough constructs")
+    counter > 1000 ? document.getElementById("buySpaceCraft").disabled = false : console.log("Not enough constructs")
+    counter > 5000 ? document.getElementById("buySpaceShuttle").disabled = false : console.log("Not enough constructs")
+    counter > 45000 ? document.getElementById("buyNASA").disabled = false : console.log("Not enough constructs")
+    counter > 100000 ? document.getElementById("buyTonyStark").disabled = false : console.log("Not enough constructs")
 
-    if (bonus[0] === "click") {
-        document.getElementById(`${bonus[0]}`).addEventListener("click", () => {
-            pileOfBonuses[index].updateCounter()
-        })
+}, 1000)
+
+document.getElementById("buyHubble").addEventListener("click", () => {
+    if (counter > 20) {
+        hubbleCount++
+        counter -= 20
+        unitsPerSec += hubbleBonus * hubbleCount
+        document.getElementById("score").innerText = counter
+        document.getElementById("hubbleCount").innerHTML = hubbleCount
+        document.getElementById("production").innerText = unitsPerSec
     }
+
+    setInterval(() => {
+        counter += unitsPerSec
+        document.getElementById("score").innerText = counter
+    }, 2500)
 })
+
+document.getElementById("buyAstronaut").addEventListener("click", () => {
+    if (counter > 100) {
+        astronautCount++
+        counter -= 100
+        unitsPerSec += astronautBonus * astronautCount
+        document.getElementById("astronautCount").classList.remove("hidden")
+        document.getElementById("score").innerText = counter
+        document.getElementById("astronautCount").innerHTML = astronautCount
+        document.getElementById("production").innerText = unitsPerSec
+    }
+    else console.log("Lacking constructs to buy more of this one")
+
+    setInterval(() => {
+        counter += unitsPerSec
+        document.getElementById("score").innerText = counter
+    }, 2500)
+})
+
+document.getElementById("buySpaceCraft").addEventListener("click", () => {
+    if (counter > 1000) {
+        spaceCraftCount++
+        counter -= 1000
+        unitsPerSec += spacecraftBonus * spaceCraftCount
+        document.getElementById("spaceCraftCount").classList.remove("hidden")
+        document.getElementById("score").innerText = counter
+        document.getElementById("spaceCraftCount").innerHTML = spaceCraftCount
+        document.getElementById("production").innerText = unitsPerSec
+    }
+    else console.log("Lacking constructs to buy more of this one")
+
+    setInterval(() => {
+        counter += unitsPerSec
+        document.getElementById("score").innerText = counter
+    }, 2500)
+})
+
+document.getElementById("buySpaceShuttle").addEventListener("click", () => {
+    if (counter > 5000) {
+        spaceShuttleCount++
+        counter -= 5000
+        unitsPerSec += spaceShuttleBonus * spaceShuttleCount
+        document.getElementById("spaceShuttleCount").classList.remove("hidden")
+        document.getElementById("score").innerText = counter
+        document.getElementById("spaceShuttleCount").innerHTML = spaceShuttleCount
+        document.getElementById("production").innerText = unitsPerSec
+    }
+    else console.log("Lacking constructs to buy more of this one")
+
+    setInterval(() => {
+        counter += unitsPerSec
+        document.getElementById("score").innerText = counter
+    }, 2500)
+})
+
+document.getElementById("buyNASA").addEventListener("click", () => {
+    if (counter > 45000) {
+        NASACount++
+        counter -= 45000
+        unitsPerSec += NASABonus * NASACount
+        document.getElementById("NASACount").classList.remove("hidden")
+        document.getElementById("score").innerText = counter
+        document.getElementById("NASACount").innerHTML = NASACount
+        document.getElementById("production").innerText = unitsPerSec
+    }
+    else console.log("Lacking constructs to buy more of this one")
+
+    setInterval(() => {
+        counter += unitsPerSec
+        document.getElementById("score").innerText = counter
+    }, 2500)
+})
+
+document.getElementById("buyTonyStark").addEventListener("click", () => {
+    if (counter > 100000) {
+        TonyStarkCount++
+        counter -= 100000
+        unitsPerSec += TonyStarkBonus * TonyStarkCount
+        document.getElementById("TonyStarkCount").classList.remove("hidden")
+        document.getElementById("score").innerText = counter
+        document.getElementById("TonyStarkCount").innerHTML = TonyStarkCount
+        document.getElementById("production").innerText = unitsPerSec
+    }
+    else console.log("Lacking constructs to buy more of this one")
+
+    setInterval(() => {
+        counter += unitsPerSec
+        document.getElementById("score").innerText = counter
+    }, 2500)
+})
+window.onbeforeunload = setData(counter, unitsPerSec);
