@@ -305,6 +305,10 @@ main .container .buttonContainer article:nth-child(6) {
   border: 1px solid #4C4343;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .hubbleContainer {
   background-image: url(../hobble.png);
   background-size: cover;
