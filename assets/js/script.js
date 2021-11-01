@@ -12,6 +12,14 @@ let spaceShuttleCount = 0 // Total amount of space shuttles, aka our multiplying
 let NASACount = 0 // Total amount of NASA factories, aka our big gun
 let TonyStarkCount = 0 // Total amount of Tony Stark generated, aka our Deus ex Machina
 
+// Variables dedicated to bonuses'prices
+let hubblePrice = 20
+let astronautPrice = 100
+let spaceCraftPrice = 1000
+let spaceShuttlePrice = 10000
+let NASAPrice = 45000
+let TonyStarkPrice = 100000
+
 // Variables dedicated to the values associated to our aforementioned bonuses
 let hubbleBonus = 1 // Well, that's a basic auto-clicker for you: + 1 construct per 2,5 seconds
 let astronautBonus = 10 // + 5 constructs per 2,5 seconds
@@ -65,23 +73,25 @@ function planetClick() {
 
 // Check every second whether conditions are met to enable buying actions associated to our bonuses
 setInterval(() => {
-    counter > 100 ? document.getElementById("buyAstronaut").disabled = false : console.log("Not enough constructs")
-    counter > 1000 ? document.getElementById("buySpaceCraft").disabled = false : console.log("Not enough constructs")
-    counter > 10000 && spaceShuttleCount < 1 ? document.getElementById("buySpaceShuttle").disabled = false : console.log("Not enough constructs")
-    counter > 45000 ? document.getElementById("buyNASA").disabled = false : console.log("Not enough constructs")
-    counter > 100000 ? document.getElementById("buyTonyStark").disabled = false : console.log("Not enough constructs")
+    counter >= 100 ? document.getElementById("buyAstronaut").disabled = false : console.log("Not enough constructs")
+    counter >= 1000 ? document.getElementById("buySpaceCraft").disabled = false : console.log("Not enough constructs")
+    counter >= 10000 && spaceShuttleCount < 1 ? document.getElementById("buySpaceShuttle").disabled = false : console.log("Not enough constructs")
+    counter >= 45000 ? document.getElementById("buyNASA").disabled = false : console.log("Not enough constructs")
+    counter >= 100000 ? document.getElementById("buyTonyStark").disabled = false : console.log("Not enough constructs")
 
 }, 1000) // Could and should have associated the costs to specific variables
 
 // Auto-clicker event
 document.getElementById("buyHubble").addEventListener("click", () => {
-    if (counter > 20) {
+    if (counter >= hubblePrice) {
         hubbleCount++
-        counter -= 20
+        counter -= hubblePrice
         unitsPerSec += hubbleBonus * multiplier // Add the bonus'value to the automatic production
         document.getElementById("score").innerText = counter
         document.getElementById("hubbleCount").innerHTML = hubbleCount
         document.getElementById("production").innerText = unitsPerSec
+        hubblePrice = Math.round(hubblePrice * 1.2)
+        document.getElementById("hubblePrice").innerText = hubblePrice
     }
 
     setInterval(() => {
@@ -92,15 +102,17 @@ document.getElementById("buyHubble").addEventListener("click", () => {
 
 // Astronaut event
 document.getElementById("buyAstronaut").addEventListener("click", () => {
-    if (counter > 100) {
+    if (counter >= astronautPrice) {
         astronautCount++
-        counter -= 100
+        counter -= astronautPrice
         unitsPerSec += astronautBonus * multiplier
         document.getElementById("astronautCount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("astronautCount").innerHTML = astronautCount
         document.getElementById("production").innerText = unitsPerSec
         document.getElementById("displayAstronaut").classList.remove("hidden")
+        astronautPrice = Math.round(astronautPrice * 1.25)
+        document.getElementById("astronautPrice").innerText = astronautPrice
     }
     else console.log("Lacking constructs to buy more of this one")
 
@@ -112,15 +124,17 @@ document.getElementById("buyAstronaut").addEventListener("click", () => {
 
 // Spacecraft event
 document.getElementById("buySpaceCraft").addEventListener("click", () => {
-    if (counter > 1000) {
+    if (counter >= spaceCraftPrice) {
         spaceCraftCount++
-        counter -= 1000
+        counter -= spaceCraftPrice
         unitsPerSec += spacecraftBonus * multiplier
         document.getElementById("spaceCraftCount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("spaceCraftCount").innerHTML = spaceCraftCount
         document.getElementById("production").innerText = unitsPerSec
         document.getElementById("displaySpaceCraft").classList.remove("hidden")
+        spaceCraftPrice = Math.round(spaceCraftPrice * 1.4)
+        document.getElementById("spaceCraftPrice").innerText = spaceCraftPrice
     }
     else console.log("Lacking constructs to buy more of this one")
 
@@ -132,9 +146,9 @@ document.getElementById("buySpaceCraft").addEventListener("click", () => {
 
 // Space shuttle event
 document.getElementById("buySpaceShuttle").addEventListener("click", multiply = () => {
-    if (counter > 10000 && spaceShuttleCount < 1) {
+    if (counter >= spaceShuttlePrice && spaceShuttleCount < 1) {
         spaceShuttleCount++
-        counter -= 10000
+        counter -= spaceShuttlePrice
         multiplier *= 2
 
         document.getElementById("buySpaceShuttle").removeEventListener("click", multiply)
@@ -142,6 +156,8 @@ document.getElementById("buySpaceShuttle").addEventListener("click", multiply = 
         document.getElementById("score").innerText = counter
         document.getElementById("spaceShuttleCount").innerHTML = spaceShuttleCount
         document.getElementById("displaySpaceShuttle").classList.remove("hidden")
+        spaceShuttlePrice = Math.round(spaceShuttlePrice * 1.5)
+        document.getElementById("spaceShuttlePrice").innerText = spaceShuttlePrice
 
         let setTime = Date.now()
         let remainingTime
@@ -166,15 +182,17 @@ document.getElementById("buySpaceShuttle").addEventListener("click", multiply = 
 
 // NASA event
 document.getElementById("buyNASA").addEventListener("click", () => {
-    if (counter > 45000) {
+    if (counter >= NASAPrice) {
         NASACount++
-        counter -= 45000
+        counter -= NASAPrice
         unitsPerSec += NASABonus * multiplier
         document.getElementById("NASACount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("NASACount").innerHTML = NASACount
         document.getElementById("production").innerText = unitsPerSec
         document.getElementById("displayNASA").classList.remove("hidden")
+        NASAPrice = Math.round(NASAPrice * 1.75)
+        document.getElementById("NASAPrice").innerText = NASAPrice
     }
     else console.log("Lacking constructs to buy more of this one")
 
@@ -186,15 +204,17 @@ document.getElementById("buyNASA").addEventListener("click", () => {
 
 // Tony Stark event
 document.getElementById("buyTonyStark").addEventListener("click", () => {
-    if (counter > 100000) {
+    if (counter >= TonyStarkPrice) {
         TonyStarkCount++
-        counter -= 100000
+        counter -= TonyStarkPrice
         unitsPerSec += TonyStarkBonus * multiplier
         document.getElementById("TonyStarkCount").classList.remove("hidden")
         document.getElementById("score").innerText = counter
         document.getElementById("TonyStarkCount").innerHTML = TonyStarkCount
         document.getElementById("production").innerText = unitsPerSec
         document.getElementById("displayTonyStark").classList.remove("hidden")
+        TonyStarkPrice = Math.round(TonyStarkPrice * 2.5)
+        document.getElementById("tonyStarkPrice").innerText = TonyStarkPrice
     }
     else console.log("Lacking constructs to buy more of this one")
 
