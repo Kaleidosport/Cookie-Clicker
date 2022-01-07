@@ -23,8 +23,16 @@
 
 The least we can say is we benefitted from a great team chemistry throughout the whole project, so much so that we kept grinding to the very end. Though it proved difficult to divide the workload in such a way that everyone could feel satisfied, we let the group prevail over personal preferences.  
 
-While Thibaut tends to work as a back-end dev, he took charge of the whole styling process. As for Sarah, she committed to the whole Canvas part. Zaccaria and Anthony both worked their way through the back-end part. We're bound to improve some aspects of the game asap, given that the current version lacks some of the features we thought of.          
+While Thibaut tends to work as a back-end dev, he took charge of the whole styling process. As for Sarah, she committed to the whole Canvas part. Zaccaria and Anthony both worked their way through the back-end part. We're bound to improve some aspects of the game asap, given that the current version lacks some of the features we thought of.  
 
-## Work in progress  
+## Project deployment  
+
+The game benefits from its own Github Page, which we deemed the best way to render it accessible to whomever would wish to give it a try. Should you be unfamiliar with the core principles of the Cookie Clicker game, feel free to compare our version to [the original one](https://orteil.dashnet.org/cookieclicker/)! Anyway, here's a snap of our [Spatial Clicker](https://kaleidosport.github.io/Cookie-Clicker/). ↴  
+
+<div align="center">
+    <img src="assets/endproduct.jpg" alt="Spatial Clicker"/>
+</div>  
+
+## Under the outward guidance of...  
 
 ![Tough week awaiting us, let's keep it fun](https://i.imgur.com/AYN3AEW.gif)       
